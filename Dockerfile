@@ -18,9 +18,6 @@ USER 0
 RUN mkdir -p /mnt/keeper-commander-kdbx-exporter/export
 RUN mkdir -p /mnt/keeper-commander-kdbx-exporter/secret
 
-# Create a volume for the exporter to store the export-file
-VOLUME "/mnt/keeper-commander-kdbx-exporter/export"
-
 # Download JMX exporter jar and configuration file
 RUN pip install pykeepass
 RUN apt-get update && apt-get install -y jq && rm -rf /var/lib/apt/lists/*
@@ -34,3 +31,4 @@ USER 1000
 ENTRYPOINT [""]
 
 CMD ["./keepass_exporter.sh"]
+
