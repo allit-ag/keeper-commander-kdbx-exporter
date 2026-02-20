@@ -1,0 +1,6 @@
+services:
+  keeper-commander-kdbx-exporter:
+    build: ../
+    volumes:
+      - ./export:/mnt/keeper-commander-kdbx-exporter/export
+      - ./secret:/mnt/keeper-commander-kdbx-exporter/secret
