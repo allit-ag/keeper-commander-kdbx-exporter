@@ -1,6 +1,6 @@
 services:
   keeper-commander-kdbx-exporter:
-    build: ../
+    image: ghcr.io/allit-ag/keeper-commander-kdbx-exporter:latest
     volumes:
-      - ./export:/mnt/keeper-commander-kdbx-exporter/export
-      - ./secret:/mnt/keeper-commander-kdbx-exporter/secret
+      - /mnt/keeper-commander-kdbx-exporter/export:/mnt/keeper-commander-kdbx-exporter/export
+      - /mnt/keeper-commander-kdbx-exporter/secret:/mnt/keeper-commander-kdbx-exporter/secret
