@@ -38,12 +38,22 @@ Mount the `secret.json` at `/mnt/keeper-commander-kdbx-exporter/secret/secret.js
 
 `keeper shell --config /path/to/secret.json`
 
+#### Keeper Configfile
 ```json
+`/mnt/keeper-commander-kdbx-exporter/secret/secret.json`
 {
   "server": "keepersecurity.eu",
   "device_token": "example_token",
   "private_key": "example_private_key",
   "user": "example_user@mail.com",
   "clone_code": "clone_code"
+}
+```
+
+#### KeePass Encryption Key
+`/mnt/keeper-commander-kdbx-exporter/secret/keepass_encryption_key.json`
+```json
+{
+  "keepass_encryption_key": "very-secret-encryption-key"
 }
 ```
