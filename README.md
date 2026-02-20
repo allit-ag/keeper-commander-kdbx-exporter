@@ -39,8 +39,8 @@ Mount the `secret.json` at `/mnt/keeper-commander-kdbx-exporter/secret/secret.js
 `keeper shell --config /path/to/secret.json`
 
 #### Keeper Configfile
-```json
 `/mnt/keeper-commander-kdbx-exporter/secret/secret.json`
+```json
 {
   "server": "keepersecurity.eu",
   "device_token": "example_token",
