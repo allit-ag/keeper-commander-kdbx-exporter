@@ -66,5 +66,5 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
-            platforms: linux/amd64,linux/arm/v7,linux/arm64/v8
+            platforms: linux/amd64
             outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Keeper KDBX exporter/,annotation-index.org.opencontainers.image.version=${{ steps.version.outputs.version }}
