@@ -22,7 +22,7 @@ docker run -it \
 
 #### Example Backup Command
 ```bash
-keeper export /mnt/keeper-commander-kdbx-exporter/export/backup__$(date +%Y-%m-%d-%H-%M-%S).kdbx.kdbx \
+keeper export /mnt/keeper-commander-kdbx-exporter/export/backup__$(date +%Y-%m-%d-%H-%M-%S) \
     --format keepass \
     --keepass-file-password='MySecretPassword' \
     --server EU --user `user@mail.com` \
@@ -38,7 +38,7 @@ Mount the `secret.json` at `/mnt/keeper-commander-kdbx-exporter/secret/secret.js
 
 `keeper shell --config /path/to/secret.json`
 
-#### Keeper Configfile
+### Required Container Configurations
 `/mnt/keeper-commander-kdbx-exporter/secret/secret.json`
 ```json
 {
@@ -57,3 +57,9 @@ Mount the `secret.json` at `/mnt/keeper-commander-kdbx-exporter/secret/secret.js
   "keepass_encryption_key": "very-secret-encryption-key"
 }
 ```
+
+#### Optional ENV-Variables
+| ENV-Variable | Description |
+|---|---|
+| BACKUP_RETENTION_DAYS | Configures the Retention days of the Backups. Defaults to `365` |
+| EXPORT_DIR | Configures the export dir path inside the Container. Defaults to `/mnt/keeper-commander-kdbx-exporter/export` |

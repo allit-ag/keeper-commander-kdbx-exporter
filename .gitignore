@@ -1,0 +1,4 @@
+/**/*.kdbx
+/**/*_membership_backup.json
+/secret/secret.json
+/secret/keepass_encryption_key.json

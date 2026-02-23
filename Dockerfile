@@ -2,6 +2,8 @@ FROM keeper/commander:latest
 
 # Set environment variables
 ENV APP_NAME="keeper-commander-kdbx-exporter"
+ENV BACKUP_RETENTION_DAYS=365
+ENV EXPORT_DIR="/mnt/keeper-commander-kdbx-exporter/export"
 ARG KEEPER_COMMANDER_KDBX_EXPORTER_REPOSITORY="https://github.com/all-it/keeper-commander-kdbx-exporter.git"
 
 # Metadata
@@ -31,4 +33,3 @@ USER 1000
 ENTRYPOINT [""]
 
 CMD ["./keepass_exporter.sh"]
-
