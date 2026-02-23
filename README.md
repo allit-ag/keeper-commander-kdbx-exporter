@@ -7,20 +7,20 @@ Build the Contaier in a local environment
 `docker build -t keeper-commander-kdbx-exporter:latest . `
 
 
-#### Interactive Login
+#### Interactive Login to debug inside container
+Manually run `./keepass_exporter.sh`.
 When you try to login and it asks for `Selection`, type `1` to use `TOTP`
 
 ```bash
 docker run -it \
     --rm \
-    -v $(pwd)/secret/secret.json:/mnt/keeper-commander-kdbx-exporter/secret/secret.json \
+    -v $(pwd)/secret:/mnt/keeper-commander-kdbx-exporter/secret \
     -v $(pwd)/export:/mnt/keeper-commander-kdbx-exporter/export keeper-commander-kdbx-exporter:latest \
     "/bin/bash"
 ```
 
 
 #### Example Backup Command
-**The KeePass encryption password is always the same as the used userpassword**
 ```bash
 keeper export /mnt/keeper-commander-kdbx-exporter/export/backup__$(date +%Y-%m-%d-%H-%M-%S).kdbx.kdbx \
     --format keepass \
