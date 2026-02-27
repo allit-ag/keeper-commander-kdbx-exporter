@@ -29,13 +29,6 @@ jobs:
         with:
           ref: ${{ github.event.inputs.tag }}
 
-      - name: Read version from file and set output
-        id: version
-        run: |
-          VERSION=$(cat version.txt)
-          echo "VERSION=$VERSION"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
@@ -72,4 +65,4 @@ jobs:
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outputs.labels }}
             platforms: linux/amd64
-            outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Keeper KDBX exporter/,annotation-index.org.opencontainers.image.version=${{ steps.version.outputs.version }}
+            outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Keeper KDBX exporter/,annotation-index.org.opencontainers.image.version=${{ github.event.inputs.tag }}
