@@ -50,6 +50,18 @@ Mount the `secret.json` at `/mnt/keeper-commander-kdbx-exporter/secret/secret.js
 }
 ```
 
+### Make the config-session persistent
+
+Start the Interactive Shell with `keeper shell --config /mnt/keeper-commander-kdbx-exporter/secret/secret.json`
+```bash
+this-device register
+this-device persistent-login on
+this-device ip-auto-approve on
+this-device timeout 30d
+quit
+```
+
+
 #### KeePass Encryption Key
 `/mnt/keeper-commander-kdbx-exporter/secret/keepass_encryption_key.json`
 ```json
