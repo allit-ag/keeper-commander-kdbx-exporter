@@ -52,6 +52,8 @@ Mount the `secret.json` at `/mnt/keeper-commander-kdbx-exporter/secret/secret.js
 
 ### Make the config-session persistent
 
+[Keeper Persistent Login Documentation](https://docs.keeper.io/en/keeperpam/commander-cli/commander-installation-setup/configuration/configuration#creating-a-persistent-login-config)
+
 Start the Interactive Shell with `keeper shell --config /mnt/keeper-commander-kdbx-exporter/secret/secret.json`
 ```bash
 this-device register
