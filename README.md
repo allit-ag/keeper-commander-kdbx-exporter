@@ -77,3 +77,4 @@ quit
 |---|---|
 | BACKUP_RETENTION_DAYS | Configures the Retention days of the Backups. Defaults to `365` |
 | EXPORT_DIR | Configures the export dir path inside the Container. Defaults to `/mnt/keeper-commander-kdbx-exporter/export` |
+
