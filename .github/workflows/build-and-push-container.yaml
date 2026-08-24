@@ -5,12 +5,12 @@ on:
     branches:
       - 'develop-*'
     tags:
-      - 'v*.*.*'
+      - '*.*.*'
   workflow_dispatch:
     inputs:
       tag:
         required: false
-        description: 'Tag to build (e.g., v1.2.3)'
+        description: 'Tag to build (e.g., 1.2.3)'
   schedule:
    - cron: '30 23 * * 0'
 
