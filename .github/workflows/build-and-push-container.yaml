@@ -3,7 +3,10 @@ name: Build and Push Docker Container
 on:
   push:
     branches:
-      - 'develop-*'
+      - 'main'
+    paths:
+      - 'Dockerfile'
+      - '.github/workflows/build-and-push-container.yaml'
     tags:
       - '*.*.*'
   workflow_dispatch:
