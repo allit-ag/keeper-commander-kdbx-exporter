@@ -10,7 +10,8 @@ on:
     inputs:
       tag:
         required: false
-        description: 'Tag to build (e.g., 1.2.3)'
+        default: main
+        description: 'Tag to build (e.g., v1.2.3)'
   schedule:
    - cron: '30 23 * * 0'
 
@@ -23,11 +24,13 @@ permissions:
 jobs:
   build-keeper-commander-kdbx-exporter:
     runs-on: ubuntu-latest
+    env:
+      TAG: ${{ inputs.tag || (github.event_name == 'schedule' && 'main') || github.ref_name }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
-          ref: ${{ github.event.inputs.tag }}
+          ref: ${{ env.TAG }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@96fe6ef7f33517b61c61be40b68a1882f3264fb8
@@ -50,9 +53,9 @@ jobs:
             ghcr.io/${{ github.repository }}
           tags: |
             type=ref,event=branch
-            type=semver,pattern={{version}},value=${{ github.event.inputs.tag }},enable={{is_default_branch}}
-            type=semver,pattern={{major}}.{{minor}},value=${{ github.event.inputs.tag }},enable={{is_default_branch}}
-            type=semver,pattern={{major}},value=${{ github.event.inputs.tag }},enable={{is_default_branch}}
+            type=semver,pattern={{version}},value=${{ env.TAG }},enable={{is_default_branch}}
+            type=semver,pattern={{major}}.{{minor}},value=${{ env.TAG }},enable={{is_default_branch}}
+            type=semver,pattern={{major}},value=${{ env.TAG }},enable={{is_default_branch}}
             type=raw,value=latest,event=branch
             type=raw,value=dev,enable=${{ startsWith(github.ref_name, 'develop-') }}
 
