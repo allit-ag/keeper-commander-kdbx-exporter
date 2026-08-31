@@ -28,7 +28,7 @@ jobs:
   build-keeper-commander-kdbx-exporter:
     runs-on: ubuntu-latest
     env:
-      TAG: ${{ inputs.tag || (github.event_name == 'schedule' && 'main') || github.ref_name }}
+      TAG: ${{ inputs.tag }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
