@@ -1,4 +1,4 @@
-FROM keeper/commander:v18.1.8
+FROM keeper/commander:v18.1.9
 
 # Set environment variables
 ENV APP_NAME="keeper-commander-kdbx-exporter"
