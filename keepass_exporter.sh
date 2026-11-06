@@ -12,6 +12,7 @@ echo "Starting Keeper backup at $NOW"
 keeper export "$EXPORT_DIR/${NOW}_keeper_backup" \
     --format keepass \
     --keepass-file-password="$password_encryption_key" \
+    --keepass-key-file none \
     --server EU \
     --user "$user_mail" \
     --config=/mnt/keeper-commander-kdbx-exporter/secret/secret.json \
